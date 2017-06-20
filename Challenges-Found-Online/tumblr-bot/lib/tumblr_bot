@@ -1,0 +1,31 @@
+require 'tumblr_client'
+
+# this part is different!
+def post_a_thing
+# Authenticate via OAuth
+client = Tumblr::Client.new({
+                            :consumer_key => 'QUKyp1LrHOPQl5Ppax7ImiEeMKCQCo62ToNiPaVxQW7n5gXpxj',
+                            :consumer_secret => 'qaqEvTYuRyzp6zJzKZeGywrRwCsOfhnZQrWAnNrPteSfRCmsm7',
+                            :oauth_token => '1WS4whK7FKxWaGx71bH7LOHiFmyioTLAEMlH2VqpZeVmrbdSXN',
+                            :oauth_token_secret => 'snAoH5q6XJrL2v2N7L97YjRYiNSjH3Tmu86o6hXCuaVQ7rrYca'
+                            })
+
+alignments = ["Lawful Good",
+"Neutral Good",
+"Chaotic Good",
+"Lawful Neutral",
+"True Neutral",
+"Chaotic Neutral",
+"Lawful Evil",
+"Neutral Evil",
+"Chaotic Evil" ]
+
+adjectives = ["Cool", "Gamer", "Doctor", "Pathetic"]
+nouns = ["Boy", "Pineapple Ham", "Child", "Gluestick", "Muffin"]
+
+sentence = "#{alignments.sample}: #{adjectives.sample} #{nouns.sample}."
+
+# Make the request
+client.text("corncollector", title: sentence)
+end
+
